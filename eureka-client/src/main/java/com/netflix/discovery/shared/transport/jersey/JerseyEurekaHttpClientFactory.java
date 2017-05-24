@@ -113,7 +113,7 @@ public class JerseyEurekaHttpClientFactory implements TransportClientFactory {
                                                        Collection<ClientFilter> additionalFilters,
                                                        InstanceInfo myInstanceInfo,
                                                        AbstractEurekaIdentity clientIdentity) {
-        JerseyEurekaHttpClientFactoryBuilder clientBuilder = newBuilder()
+        JerseyEurekaHttpClientFactoryBuilder clientBuilder = experimentalBuilder()
                 .withAdditionalFilters(additionalFilters)
                 .withMyInstanceInfo(myInstanceInfo)
                 .withUserAgent("Java-EurekaClient")

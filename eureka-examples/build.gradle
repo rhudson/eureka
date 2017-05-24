@@ -5,7 +5,8 @@ dependencies {
     compile files('conf')
 
     compile "com.netflix.governator:governator:${governatorVersion}"
-    runtime 'org.slf4j:slf4j-simple:1.7.7'
+//    runtime 'org.slf4j:slf4j-simple:1.7.7'
+    runtime 'org.slf4j:slf4j-log4j12:1.6.1'
 }
 
 startScripts.enabled = false
@@ -17,7 +18,7 @@ task runExampleService (dependsOn: [classes], type: JavaExec) {
 
     main = "com.netflix.eureka.ExampleEurekaService"
     classpath = sourceSets.main.runtimeClasspath
-    jvmArgs(["-Deureka.client.props=sample-eureka-service"])
+    jvmArgs(["-Deureka.client.props=sample-eureka-service", "-Dlog4j.configDebug", "-Dlog4j.configuration=file:///Users/robert.hudson/workspace/3rdParty/eureka/eureka-examples/conf/log4j.properties"])
 }
 
 task runExampleGovernatedService (dependsOn: [classes], type: JavaExec) {
